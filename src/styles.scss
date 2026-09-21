@@ -1,1 +1,263 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/buttons';
+
+:root {
+    --background-color: #ffffff;
+    --on-background-color: #111110;
+
+    --surface-color: #f8f8f6;
+    --on-surface-color: #1b1b1a;
+
+    --surface-variant-color: #eeeeeb;
+    --on-surface-variant-color: #4a4a47;
+
+    --outline-color: #777773;
+    --outline-variant-color: #d1d1cc;
+
+    --primary-color: #111110;
+    --on-primary-color: #ffffff;
+    --primary-container-color: #e8e8e4;
+    --on-primary-container-color: #181817;
+
+    --secondary-color: #5f5f5a;
+    --on-secondary-color: #ffffff;
+    --secondary-container-color: #e5e5df;
+    --on-secondary-container-color: #20201e;
+
+    --accent-color: #786f5f;
+    --on-accent-color: #ffffff;
+    --accent-container-color: #eee8dc;
+    --on-accent-container-color: #29251f;
+
+    --error-color: #b3261e;
+    --on-error-color: #ffffff;
+    --error-container-color: #f9dedc;
+    --on-error-container-color: #410e0b;
+
+    --gap-xs: .25rem;
+    --gap-sm: .5rem;
+    --gap-md: 1rem;
+    --gap-lg: 1.5rem;
+    --gap-xl: 2rem;
+
+    --pad-xs: .25rem;
+    --pad-sm: .5rem;
+    --pad-md: 1rem;
+    --pad-lg: 1.5rem;
+    --pad-xl: 2rem;
+
+    --margin-xs: .25rem;
+    --margin-sm: .5rem;
+    --margin-md: 1rem;
+    --margin-lg: 1.5rem;
+    --margin-xl: 2rem;
+
+    --radius-xs: 0.15rem;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 1rem;
+
+    --page-min-pixels: 1536px;
+    --page-padding: 4rem;
+    --page-pad: 2rem;
+}
+
+/* ------------------------
+   CONTAINERS
+------------------------- */
+
+body {
+    background: var(--surface-color);
+    color: var(--on-surface-color);
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    font-family: "Outfit", sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.page-container {
+    width: min(var(--page-min-pixels), 100vw - var(--page-padding));
+    margin-inline: auto;
+    padding-block: var(--page-pad);
+}
+
+.flex {
+    display: flex;
+}
+.flex-col {
+    flex-direction: column;
+}
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ------------------------
+   GRID
+------------------------- */
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5 {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-6 {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.span-1 { grid-column: span 1; }
+.span-2 { grid-column: span 2; }
+.span-3 { grid-column: span 3; }
+.span-4 { grid-column: span 4; }
+.span-5 { grid-column: span 5; }
+.span-6 { grid-column: span 6; }
+.span-7 { grid-column: span 7; }
+.span-8 { grid-column: span 8; }
+.span-9 { grid-column: span 9; }
+.span-10 { grid-column: span 10; }
+.span-11 { grid-column: span 11; }
+.span-12 { grid-column: span 12; }
+
+
+/* ------------------------
+   SPACING
+------------------------- */
+
+.spacer { flex: 1 1 auto; }
+
+.gap-xs { gap: var(--gap-xs); }
+.gap-sm { gap: var(--gap-sm); }
+.gap-md { gap: var(--gap-md); }
+.gap-lg { gap: var(--gap-lg); }
+.gap-xl { gap: var(--gap-xl); }
+
+.pad-xs { padding: var(--pad-xs); }
+.pad-sm { padding: var(--pad-sm); }
+.pad-md { padding: var(--pad-md); }
+.pad-lg { padding: var(--pad-lg); }
+.pad-xl { padding: var(--pad-xl); }
+
+.mt-xs { margin-top: var(--margin-xs); }
+.mt-sm { margin-top: var(--margin-sm); }
+.mt-md { margin-top: var(--margin-md); }
+.mt-lg { margin-top: var(--margin-lg); }
+.mt-xl { margin-top: var(--margin-xl); }
+
+.mb-xs { margin-bottom: var(--margin-xs); }
+.mb-sm { margin-bottom: var(--margin-sm); }
+.mb-md { margin-bottom: var(--margin-md); }
+.mb-lg { margin-bottom: var(--margin-lg); }
+.mb-xl { margin-bottom: var(--margin-xl); }
+
+.ml-xs { margin-left: var(--margin-xs); }
+.ml-sm { margin-left: var(--margin-sm); }
+.ml-md { margin-left: var(--margin-md); }
+.ml-lg { margin-left: var(--margin-lg); }
+.ml-xl { margin-left: var(--margin-xl); }
+
+.mr-xs { margin-right: var(--margin-xs); }
+.mr-sm { margin-right: var(--margin-sm); }
+.mr-md { margin-right: var(--margin-md); }
+.mr-lg { margin-right: var(--margin-lg); }
+.mr-xl { margin-right: var(--margin-xl); }
+
+.align-start {
+    align-items: start;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-end {
+    align-items: end;
+}
+
+.justify-start {
+    justify-content: start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: end;
+}
+
+/* ------------------------
+   TEXT
+------------------------- */
+
+h1, h2, h3, h4, h5, th {
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+p, label, td, a, span, input, div {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ------------------------
+   SPECIALS
+------------------------- */
+
+.clickable {
+    cursor: pointer;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}

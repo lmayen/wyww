@@ -1,0 +1,166 @@
+.button {
+    // Default: primary
+    --button-color: var(--primary-color);
+    --button-on-color: var(--on-primary-color);
+    --button-container-color: var(--primary-container-color);
+    --button-on-container-color: var(--on-primary-container-color);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-md);
+    padding: var(--pad-sm) var(--pad-md);
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+
+    background-color: var(--button-color);
+    color: var(--button-on-color);
+
+    font: inherit;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+            background-color 150ms ease,
+            color 150ms ease,
+            border-color 150ms ease,
+            box-shadow 150ms ease;
+
+    &:hover:not(:disabled) {
+        background-color: color-mix(
+                in srgb,
+                var(--button-color),
+                black 8%
+        );
+    }
+
+    &:active:not(:disabled) {
+        background-color: color-mix(
+                in srgb,
+                var(--button-color),
+                black 14%
+        );
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--button-color);
+        outline-offset: 2px;
+    }
+
+    &:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+    }
+}
+
+
+// -----------------------------------------------------------------------------
+// Severities
+// -----------------------------------------------------------------------------
+
+.button-primary {
+    --button-color: var(--primary-color);
+    --button-on-color: var(--on-primary-color);
+    --button-container-color: var(--primary-container-color);
+    --button-on-container-color: var(--on-primary-container-color);
+}
+
+.button-secondary {
+    --button-color: var(--secondary-color);
+    --button-on-color: var(--on-secondary-color);
+    --button-container-color: var(--secondary-container-color);
+    --button-on-container-color: var(--on-secondary-container-color);
+}
+
+.button-accent {
+    --button-color: var(--accent-color);
+    --button-on-color: var(--on-accent-color);
+    --button-container-color: var(--accent-container-color);
+    --button-on-container-color: var(--on-accent-container-color);
+}
+
+.button-success {
+    --button-color: var(--success-color);
+    --button-on-color: var(--on-success-color);
+    --button-container-color: var(--success-container-color);
+    --button-on-container-color: var(--on-success-container-color);
+}
+
+.button-warning {
+    --button-color: var(--warning-color);
+    --button-on-color: var(--on-warning-color);
+    --button-container-color: var(--warning-container-color);
+    --button-on-container-color: var(--on-warning-container-color);
+}
+
+.button-danger {
+    --button-color: var(--danger-color);
+    --button-on-color: var(--on-danger-color);
+    --button-container-color: var(--danger-container-color);
+    --button-on-container-color: var(--on-danger-container-color);
+}
+
+
+// -----------------------------------------------------------------------------
+// Variants
+// -----------------------------------------------------------------------------
+
+.button-outlined {
+    border-color: var(--button-color);
+
+    background-color: transparent;
+    color: var(--button-color);
+
+    &:hover:not(:disabled) {
+        background-color: var(--button-container-color);
+        color: var(--button-on-container-color);
+    }
+
+    &:active:not(:disabled) {
+        background-color: color-mix(
+                in srgb,
+                var(--button-container-color),
+                var(--button-color) 8%
+        );
+    }
+}
+
+.button-text {
+    border-color: transparent;
+
+    background-color: transparent;
+    color: var(--button-color);
+
+    &:hover:not(:disabled) {
+        background-color: var(--button-container-color);
+        color: var(--button-on-container-color);
+    }
+
+    &:active:not(:disabled) {
+        background-color: color-mix(
+                in srgb,
+                var(--button-container-color),
+                var(--button-color) 8%
+        );
+    }
+}
+
+
+// -----------------------------------------------------------------------------
+// Shape
+// -----------------------------------------------------------------------------
+
+.button-rounded {
+    border-radius: 9999px;
+}
+
+.button-circle {
+    padding: var(--pad-sm);
+    border-radius: 9999px;
+    height: auto;
+    aspect-ratio: 1;
+}

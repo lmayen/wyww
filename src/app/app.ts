@@ -1,16 +1,27 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, signal} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
+import {NavBar} from "./widgets/nav-bar/nav-bar";
+import {Footer} from "./widgets/footer/footer";
 
-@Component({
-  imports: [RouterOutlet],
-  selector: 'app-root',
-  styles: [],
-  template: `
-    <h1>Hello, {{ title() }}</h1>
+@Component(
+    {
+        imports: [RouterOutlet, NavBar, Footer],
+        selector: 'app-root',
+        styles: [],
+        template: `
+            <nav-bar/>
+            <div class="page-container">
+                <h1>Hello, {{ title() }}</h1>
+                <router-outlet/>
+            </div>
+            <footer>
+                <nav-footer/>
+            </footer>
+        `,
+    }
+)
 
-    <router-outlet />
-  `,
-})
+
 export class App {
-  protected readonly title = signal('Wyww');
+    protected readonly title = signal('Wyww');
 }
