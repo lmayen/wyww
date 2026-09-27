@@ -8,7 +8,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--gap-md);
+    gap: var(--gap-sm);
     padding: var(--pad-sm) var(--pad-md);
 
     border: 1px solid transparent;
@@ -24,11 +24,10 @@
 
     cursor: pointer;
 
-    transition:
-            background-color 150ms ease,
-            color 150ms ease,
-            border-color 150ms ease,
-            box-shadow 150ms ease;
+    transition: background-color 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
 
     &:hover:not(:disabled) {
         background-color: color-mix(
@@ -163,4 +162,6 @@
     border-radius: 9999px;
     height: auto;
     aspect-ratio: 1;
+    //min-width: 38px;
+    //max-width: 42px;
 }

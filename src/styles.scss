@@ -1,4 +1,9 @@
 @use './styles/buttons';
+@use './styles/inputs';
+@use '@angular/cdk' as cdk;
+
+@include cdk.overlay();
+
 
 :root {
     --background-color: #ffffff;
@@ -12,11 +17,14 @@
 
     --outline-color: #777773;
     --outline-variant-color: #d1d1cc;
+    //--outline-variant-color: #1e1f22;
 
     --primary-color: #111110;
     --on-primary-color: #ffffff;
     --primary-container-color: #e8e8e4;
     --on-primary-container-color: #181817;
+
+    --on-primary-inline-color: #8e8e89;
 
     --secondary-color: #5f5f5a;
     --on-secondary-color: #ffffff;
@@ -31,7 +39,10 @@
     --error-color: #b3261e;
     --on-error-color: #ffffff;
     --error-container-color: #f9dedc;
-    --on-error-container-color: #410e0b;
+    //--on-error-container-color: #410e0b;
+    --on-error-container-color: #c3290d;
+
+    --success-color: #addd4d;
 
     --gap-xs: .25rem;
     --gap-sm: .5rem;
@@ -67,7 +78,7 @@
 ------------------------- */
 
 body {
-    background: var(--surface-color);
+    background: var(--background-color);
     color: var(--on-surface-color);
     -webkit-font-smoothing: antialiased;
     margin: 0;
@@ -108,6 +119,23 @@ form {
     align-items: center;
 }
 
+.divider-h {
+    display: block;
+    border-top: 1px solid var(--on-primary-inline-color);
+    width: 100%;
+    height: 1px;
+    mix-blend-mode: multiply;
+}
+
+.divider-v {
+    display: block;
+    border-right: 1px solid var(--on-primary-inline-color);
+    justify-self: center;
+    width: 1px;
+    height: 100%;
+    mix-blend-mode: multiply;
+}
+
 
 /* ------------------------
    GRID
@@ -136,6 +164,21 @@ form {
 .grid-6 {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.grid-7 {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-8 {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.grid-9 {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
 }
 
 .grid-12 {
@@ -220,7 +263,8 @@ form {
 }
 
 .justify-end {
-    justify-content: end;
+    //justify-content: end;
+    justify-items: end;
 }
 
 /* ------------------------
@@ -228,8 +272,9 @@ form {
 ------------------------- */
 
 h1, h2, h3, h4, h5, th {
-    font-family: "Abril Fatface", serif;
-    font-weight: 400;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
     font-style: normal;
 }
 
@@ -238,6 +283,10 @@ p, label, td, a, span, input, div {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+}
+
+label {
+    font-size: 14px;
 }
 
 .text-ellipsis {

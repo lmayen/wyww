@@ -11,7 +11,6 @@ import {Footer} from "./widgets/footer/footer";
         template: `
             <nav-bar/>
             <div class="page-container">
-                <h1>Hello, {{ title() }}</h1>
                 <router-outlet/>
             </div>
             <footer>

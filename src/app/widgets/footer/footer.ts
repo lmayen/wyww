@@ -1,4 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, inject, Signal} from '@angular/core';
+import {BreakpointObserver} from "@angular/cdk/layout";
+import {toSignal} from "@angular/core/rxjs-interop";
+import {map} from "rxjs";
 
 @Component(
     {
@@ -18,6 +21,7 @@ import {Component} from '@angular/core';
                 border-top: 1px solid var(--outline-variant-color);
                 //position: sticky;
                 position: fixed;
+                background-color: var(--background-color);
                 width: 100%;
                 bottom: 0;
             }
@@ -39,18 +43,34 @@ import {Component} from '@angular/core';
         template: `
             <div class="container">
                 <div class="bar">
-                    <div class="bar-flex">
-                        <h4>What You Wanna Watch</h4>
-                        <span class="spacer"></span>
-                        <span>This is a fake site made for learning purposes</span>
-                    </div>
+                    @if (isCompact()) {
+                        <div class="bar-flex align-center justify-center">
+                            <span>This is a fake site made for learning purposes</span>
+                        </div>
+                    } 
+                    @else {
+                        <div class="bar-flex">
+                            <h4>What You Wanna Watch</h4>
+                            <span class="spacer"></span>
+                            <span>This is a fake site made for learning purposes</span>
+                        </div>
+                    }
                 </div>
 
-            </div> 
+            </div>
         `,
     }
 )
 
 export class Footer {
+
+    private breakpointObserver: BreakpointObserver = inject(BreakpointObserver);
+
+    isCompact: Signal<boolean> = toSignal(
+        this.breakpointObserver
+            .observe('(max-width: 768px)')
+            .pipe(map(result => result.matches)),
+        { initialValue: false }
+    );
 
 }

@@ -11,7 +11,6 @@ type ButtonSeverity =
 type ButtonVariant =
     | 'filled'
     | 'outlined'
-    | 'circle'
     | 'text';
 
 @Directive(
@@ -30,9 +29,10 @@ type ButtonVariant =
             '[class.button-filled]': 'variant() === "filled"',
             '[class.button-outlined]': 'variant() === "outlined"',
             '[class.button-text]': 'variant() === "text"',
-            '[class.button-circle]': 'variant() === "circle"',
 
             '[class.button-rounded]': 'rounded()',
+
+            '[class.button-circle]': 'circle()',
         },
     }
 )
@@ -42,4 +42,5 @@ export class Bt {
     severity: InputSignal<ButtonSeverity> = input<ButtonSeverity>('primary');
     variant: InputSignal<ButtonVariant> = input<ButtonVariant>('filled');
     rounded: InputSignal<boolean> = input<boolean>(false);
+    circle: InputSignal<boolean> = input<boolean>(false);
 }
